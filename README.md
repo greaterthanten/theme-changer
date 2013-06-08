@@ -1,12 +1,12 @@
-# jquery.theme-changer
+# theme-changer
 
-A jQuery plugin to easily change themes of websites
+A javascript snippet to support live theme changes for websites. Works best for popular websites (like Facebook), or built using Twitter Bootstrap.
 
 ## Installation
 
 Include script *after* the jQuery library (unless you are packaging scripts somehow else):
 
-    <script src="/path/to/jquery.theme-changer.js"></script>
+    <script src="/path/to/theme-changer.js"></script>
 
 ## Usage
 
@@ -18,8 +18,8 @@ Coming soon ... Use CTRL + Up/Down to make minor theme adjustments
 
 ## Development
 
-- Source hosted at [GitHub](https://github.com/greaterthanten/jquery.theme-changer)
-- Report issues, questions, feature requests on [GitHub Issues](https://github.com/greaterthanten/jquery.theme-changer/issues)
+- Source hosted at [GitHub](https://github.com/greaterthanten/theme-changer)
+- Report issues, questions, feature requests on [GitHub Issues](https://github.com/greaterthanten/theme-changer/issues)
 
 Pull requests are very welcome!
 
