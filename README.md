@@ -14,7 +14,7 @@ Use CTRL + Left/Right to switch between available themes
 
 Use CTRL + End to remove the applied theme
 
-Coming soon ... Use CTRL + Up/Down to make minor theme adjustments
+Coming soon... Use CTRL + Up/Down to make minor theme adjustments
 
 ## Development
 
