@@ -61,10 +61,19 @@ ThemeChanger.LoadTheme = function() {
 		type : 'text/css',
 		href : '//common.greaterthanten.com/css/themes/' + ThemeChanger.themes[ThemeChanger.currentTheme]
 	});
+	var $div = $('#theme-changer-label');
+	if( $div.length < 1 ){
+		$div = $('<div id="theme-changer-label" />');
+		$div.css('position', 'fixed').css('top', '0px').css('left', '0px')
+	}
+	
+	$div.text(ThemeChanger.themes[ThemeChanger.currentTheme]);
+	$('body').append($div);
 };
 
 ThemeChanger.RemoveTheme = function() {
 	$('link.theme-changer').remove();
+	$('#theme-changer-label').remove();
 };
 
 ThemeChanger.Init();
