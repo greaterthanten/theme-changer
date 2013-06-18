@@ -21,12 +21,15 @@ ThemeChanger.BindListeners = function(){
 		if( e.ctrlKey || e.metaKey ){
 			if( e.which == 39 ){
 				ThemeChanger.NextTheme();
+				return false;
 			}
 			if( e.which == 37 ){
 				ThemeChanger.PrevTheme();
+				return false;
 			}
 			if( e.which == 35 ){
 				ThemeChanger.RemoveTheme();
+				return false;
 			}
 		}
 	});
@@ -37,7 +40,18 @@ ThemeChanger.PopulateCategories = function() {
 };
 
 ThemeChanger.PopulateThemes = function() {
-	$.getJSON('//common.greaterthanten.com/css/themes/list.php', function(data){
+	var params = {category: 'default'};
+	if( location.href.indexOf('facebook.com') >= 0 ){
+		params.category = 'facebook';
+	}
+	else if( location.href.indexOf('twitter.com') >= 0 ){
+		params.category = 'twitter';
+	}
+	else if( $('link[href*=bootstrap]').length > 0 ){
+		params.category = 'bootstrap';
+	}
+	
+	$.getJSON('//common.greaterthanten.com/css/themes/list.php', params, function(data){
 		ThemeChanger.themes = data;
 	});
 };
