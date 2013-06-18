@@ -68,8 +68,12 @@ ThemeChanger.PrevTheme = function() {
 };
 
 ThemeChanger.LoadTheme = function() {
-	$('head').append('<link class="theme-changer">');
-	css = $('head').children(':last');
+	var css = $('link.theme-changer');
+	if( css.length < 1 ){
+		ThemeChanger.saved = $('link[href*=bootstrap]').not('[href*=responsive]').detach();
+		css = $('<link class="theme-changer">');
+		$('head').prepend(css);
+	}
 	css.attr({
 		rel : 'stylesheet',
 		type : 'text/css',
@@ -78,7 +82,7 @@ ThemeChanger.LoadTheme = function() {
 	var $div = $('#theme-changer-label');
 	if( $div.length < 1 ){
 		$div = $('<div id="theme-changer-label" />');
-		$div.css('position', 'fixed').css('top', '0px').css('left', '0px')
+		$div.css('position', 'fixed').css('top', '0px').css('left', '0px').css('color', 'black').css('background-color', 'white');
 	}
 	
 	$div.text(ThemeChanger.themes[ThemeChanger.currentTheme]);
@@ -88,6 +92,7 @@ ThemeChanger.LoadTheme = function() {
 ThemeChanger.RemoveTheme = function() {
 	$('link.theme-changer').remove();
 	$('#theme-changer-label').remove();
+	$('head').prepend(ThemeChanger.saved);
 };
 
 ThemeChanger.Init();
